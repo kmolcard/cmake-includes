@@ -32,7 +32,7 @@ target_compile_features(Tests PRIVATE cxx_std_20)
 target_include_directories(Tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # Copy over compile definitions from our plugin target so it has all the JUCEy goodness
-target_compile_definitions(Tests PRIVATE $<TARGET_PROPERTY:${PROJECT_NAME},COMPILE_DEFINITIONS>)
+target_compile_definitions(Tests PRIVATE $<TARGET_PROPERTY:${PRODUCT_NAME_NO_SPACE},COMPILE_DEFINITIONS>)
 
 # And give tests access to our shared code
 target_link_libraries(Tests PRIVATE SharedCode Catch2::Catch2WithMain)
