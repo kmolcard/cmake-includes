@@ -1,4 +1,4 @@
-file(GLOB_RECURSE BenchmarkFiles CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/Benchmarks/*.h")
+file(GLOB_RECURSE BenchmarkFiles CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/benchmarks/*.h")
 
 # Organize the test source in the Tests/ folder in the IDE
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/benchmarks PREFIX "" FILES ${BenchmarkFiles})
@@ -14,7 +14,7 @@ target_include_directories(Benchmarks PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/source
 target_compile_definitions(Benchmarks PRIVATE $<TARGET_PROPERTY:${PRODUCT_NAME_NO_SPACE},COMPILE_DEFINITIONS>)
 
 # And give tests access to our shared code
-target_link_libraries(Benchmarks PRIVATE SharedCode Catch2::Catch2WithMain)
+target_link_libraries(Benchmarks PRIVATE SharedCode Catch2::Catch2)
 
 # Make an Xcode Scheme for the test executable so we can run tests in the IDE
 set_target_properties(Benchmarks PROPERTIES XCODE_GENERATE_SCHEME ON)
